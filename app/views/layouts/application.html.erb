@@ -9,8 +9,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+	
+	<nav class="main-nav">
+		<%= link_to "Products", products_path %>
+	  <%= form_tag("/products", method: "get") do %>
+		  <%= label_tag(:q, "Search:") %>
+		  <%= text_field_tag(:q) %>
+		  <%= submit_tag("Search") %>
+		<% end %>
+	</nav>
 
 <%= yield %>
-
+</div>
 </body>
 </html>
