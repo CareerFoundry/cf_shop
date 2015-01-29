@@ -8,15 +8,10 @@ class StaticPagesController < ApplicationController
 	end
 
 	def thank_you
-		# @name = params[:name]
-	 #  @email = params[:email]
-	 #  @message = params[:message]
-  # 	ActionMailer::Base.mail(:from => 'no-reply@example.com', 
-	 #  	:to => @email, 
-	 #  	:subject => "A new contact form message", 
-	 #  	:body => @message).deliver
-  # 	flash[:notice] = "Your message has been delivered."
-  # 	render "static_pages/contact"
+		@name = params[:name]
+	  @email = params[:email]
+	  @message = params[:message]
+	  UserMailer.contact_form(@email, @name, @message).deliver
 	end
 
   def landing_page
