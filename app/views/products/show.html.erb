@@ -3,25 +3,24 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<div class="row">
+	<div class="col-md-4"><%= image_tag @product.image_url %></div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+	<div class="col-md-4">
+		<p>
+		  <h4><%= @product.name %></h4>
+		</p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
+		<p>
+		  <%= @product.description %>
+		</p>
 
-<p>
-  <strong>Color:</strong>
-  <%= @product.color %>
-</p>
+		<p>
+		  <strong>Color:</strong> <%= @product.color %>
+		</p>
+	</div>
+
+</div>
 
 <%= render 'new_comment' %>
 
