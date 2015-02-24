@@ -2,7 +2,7 @@
 	<% @comments.each do |comment| %>
 		<div class="row">
 			<p><%= comment.user.first_name %>  <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small></p>
-			<div class="review-rating"><%= comment.rating %></div>
+			<div class="review-rating rating" data-score="<%= comment.rating %>"></div>
 			<p><%= comment.body %></p>
 		</div>
 	<% end %>

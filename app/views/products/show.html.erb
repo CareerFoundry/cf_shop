@@ -4,11 +4,11 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-	<div class="col-md-4"><%= image_tag @product.image_url %></div>
+	<div class="col-md-7"><%= image_tag(@product.image_url, width: "650") %></div>
 
 	<div class="col-md-4">
 		<p>
-		  <h4><%= @product.name %></h4>
+		  <h2><%= @product.name %></h2>
 		</p>
 
 		<p>
