@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :products, :users
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
+  resources :orders, only: [:index, :show, :new, :create]
+
   get 'static_pages/about'
 
   get 'static_pages/contact'
