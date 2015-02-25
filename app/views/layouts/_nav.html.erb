@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Products", products_path %></li>
+        <li class="<%= "active" if params[:controller] == "products" %>"><%= link_to "Products", products_path %></li>
       </ul>
 
       <!-- Search Form -->
