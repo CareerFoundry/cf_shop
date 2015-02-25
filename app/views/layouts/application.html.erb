@@ -3,30 +3,13 @@
 <%= render 'layouts/head' %>
 <body>
 <div class="container">
+
+<%= render 'layouts/nav' %>
+
+<div class="flash-notices">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-	
-	<nav class="main-nav">
-		
-		<%= link_to "Products", products_path %>
-	  <%= form_tag("/products", method: "get") do %>
-		  <%= label_tag(:q, "Search:") %>
-		  <%= text_field_tag(:q) %>
-		  <%= submit_tag("Search") %>
-		<% end %>
-
-		<!-- Devise actions -->
-		<% if user_signed_in? %>
-		  <li>
-		  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-		  </li>
-		<% else %>
-		  <li>
-		  <%= link_to('Login', new_user_session_path)  %>  
-		  </li>
-		<% end %>
-
-	</nav>
+</div>
 
 <%= yield %>
 </div>

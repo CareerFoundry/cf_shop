@@ -1,0 +1,43 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">CF Bike Shop</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Products", products_path %></li>
+      </ul>
+
+      <!-- Search Form -->
+		  <%= form_tag("/products", method: "get", class: "navbar-form navbar-left") do %>
+		  	<div class="form-group">
+				  <%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search") %>
+				</div>		  
+				  <%= submit_tag("Search", class: "btn btn-default") %>
+			<% end %>      
+
+		<!-- Devise actions -->
+		<ul class="nav navbar-nav navbar-right">
+			<% if user_signed_in? %>
+			  <li>
+			  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+			  </li>
+			<% else %>
+			  <li>
+			  <%= link_to('Login', new_user_session_path)  %>  
+			  </li>
+			<% end %>			
+		</ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
