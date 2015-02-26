@@ -2,7 +2,6 @@
 
 	<h4>Add a review:</h4>
 	<%= form_for([@product, @product.comments.build]) do |f| %>
-	  <%#= render "shared/error_messages", :target => @comment %>
 
 	  <p>
 	    <%= f.label :body, "Comments" %><br>
