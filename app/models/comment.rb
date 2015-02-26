@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
   belongs_to :product
 
   validates :body, presence: true
-  validates :rating, presence: true, numericality: { only_integer: true }
+  # validates :rating, presence: true, numericality: { only_integer: true }
   # , if: :product_review?
 
   # private

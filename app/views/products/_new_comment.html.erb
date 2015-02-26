@@ -8,10 +8,7 @@
 	    <%= f.label :body, "Comments" %><br>
 	    <%= f.text_area :body %>
 	  </p>
-	  <p>
-	    <%= f.label :rating %><br>
-	    <%= f.text_field :rating, class: "rating" %>
-	  </p>  
+	  <%= rating_for @product, "overall", disable_after_rate: false %>
 	  <p>
 	    <%= f.submit "Submit" %>
 	  </p>

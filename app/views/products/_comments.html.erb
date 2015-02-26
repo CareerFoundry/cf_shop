@@ -8,8 +8,11 @@
 					<%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product_comment_path(@product, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
 				<% end %>
 			</p>
-			<div class="review-rating rating" data-score="<%= comment.rating %>"></div>
-			<p><%= "Rating: #{comment.rating}/5" %></p>
+			<!-- <div class="review-rating rating" data-score="<%= comment.rating %>"></div> -->
+			<!-- <p><%#= "Rating: #{comment.rating}/5" %></p> -->
+			<div class="small-2 large-2 columns">
+    		<%= rating_for_user @product, comment.user, "overall" %>
+  		</div>
 			<p><%= comment.body %></p>
 		</div>
 	<% end %>
