@@ -16,5 +16,11 @@
 //= require_tree .
 
 $(document).ready(function(){
-	$('.rating').raty({ path: '/assets' });
+	$('.rating').raty( { path: '/assets', scoreName: 'comment[rating]' });
+	$('.rated').raty({ path: '/assets', 
+		readOnly: true,
+	  score: function() {
+	    return $(this).attr('data-score');
+	  }
+	});
 });
