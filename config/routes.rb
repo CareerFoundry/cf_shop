@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'payments/create'
+
   resources :products do
     resources :comments
   end
