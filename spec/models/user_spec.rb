@@ -7,4 +7,9 @@ describe User, :type => :model do
 
     expect(User.all.order("last_name")).to eq([chelimsky, lindeman])
   end
+
+  it "should authenticate user from factory" do
+    FactoryGirl.attributes_for(:user).valid? should be_true
+	end
+
 end
