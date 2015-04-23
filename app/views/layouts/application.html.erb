@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 <%= render 'layouts/head' %>
+
 <body>
-<div class="container">
+	<div class="container">
+		<%= render 'layouts/nav' %>
 
-<%= render 'layouts/nav' %>
+		<div class="flash-notices">
+		  <p class="notice text-info"><%= notice %></p>
+		  <p class="alert text-danger"><%= alert %></p>
+		</div>
 
-<div class="flash-notices">
-  <p class="notice text-info"><%= notice %></p>
-  <p class="alert text-danger"><%= alert %></p>
-</div>
-
-<%= yield %>
-</div>
+		<%= yield %>
+	
+	</div>
 </body>
+
 </html>
