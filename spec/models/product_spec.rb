@@ -2,7 +2,7 @@ require 'rails_helper' # also requires spec_helper and adds other stuff - if did
 
 describe Product do
 
-  describe "#average_rating" do # - the '#' signifies that we are testing an instance method - describe the method you will be testing (which belongs to the Class)
+  #describe "#average_rating" do # - the '#' signifies that we are testing an instance method - describe the method you will be testing (which belongs to the Class)
 
     #context 1, test 1
     context "when the product has comments" do # create context
@@ -17,8 +17,19 @@ describe Product do
       it 'returns the average rating of all comments' do
         expect(@product.average_rating).to eq 3
       end
+
     end
 
-  end #end describe #average_rating
+    context "when product has no name" do
+      before do
+        @product = Product.create(:description => "This is a test")
+      end
+
+      it 'is an invalid product' do
+        expect(@product).not_to be_valid
+      end
+    end
+
+#  end #end describe #average_rating
 
 end #end describe Product
