@@ -2,7 +2,7 @@
 <%= link_to 'Back', products_path %>
 
 <div class="row">
-	<div class="col-md-4"><%= image_tag(@product.image_url, width: "350") %></div>
+	<div class="col-md-4"><%= image_tag(@product.image_url, width: "350", class: "img-zoom", data_zoom_image: @product.image_url) %></div>
 
 	<div class="col-md-4">
 		<p>
@@ -18,10 +18,10 @@
 		</p>
 
 		<p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
-	
+
 		<%= form_tag("/payments/create", remote: true) do %>
 		  <%= render partial: "shared/stripe_checkout_button" %>
-		<% end %>		
+		<% end %>
 
 	</div>
 
