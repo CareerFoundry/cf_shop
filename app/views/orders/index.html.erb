@@ -1,0 +1,47 @@
+<div ng-controller="OrdersCtrl">
+
+  <h1>Orders</h1>
+  <table class="table table-hover">
+    <thead>
+      <td>Order ID</td>
+      <td>Total</td>
+      <td>Product</td>
+      <td></td>
+    </thead>
+    <tr>
+      <form ng-submit="addOrder()">
+        <td>
+          <span ng-show="newOrder">{{orders[orders.length - 1].id + 1 }}</span>
+        </td>
+        <td>
+          <input type="number" step="0.01" ng-model="newOrder.total" class="form-control">
+        </td>
+        <td>
+          <select ng-model="newOrder.product_id" class="form-control">
+            <option ng-repeat="product in products" value="{{product.id}}">{{product.name}}</option>
+          </select>
+          <!--input type="number" ng-model="newOrder.user_id"-->
+        </td>
+        <td>
+          <input type="submit" value="+" class="btn btn-success">
+        </td>
+      </form>
+    </tr>
+    <tr ng-repeat="order in orders | orderBy:'-id':reverse">
+      <td>
+        {{order.id}}
+      </td>
+      <td>
+        <strong>{{order.total | currency}}</strong>
+      </td>
+      <td>
+        {{order.product.name}}
+        <small ng-show="order.user.email" class="text-muted"><br>-{{order.user.email}}</small>
+      </td>
+      <td>
+        <button ng-click="deleteOrder(order)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+      </td>
+    </tr>
+  </table>
+
+</div> <!-- ng-controller -->
