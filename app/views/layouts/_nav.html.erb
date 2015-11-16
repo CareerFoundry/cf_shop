@@ -15,27 +15,28 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="<%= "active" if params[:controller] == "products" %>"><%= link_to "Products", products_path %></li>
+        <li><%= link_to "Orders", orders_path %></li>
       </ul>
 
       <!-- Search Form -->
 		  <%= form_tag("/products", method: "get", class: "navbar-form navbar-left") do %>
 		  	<div class="form-group">
 				  <%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search") %>
-				</div>		  
+				</div>
 				  <%= submit_tag("Search", class: "btn btn-default") %>
-			<% end %>      
+			<% end %>
 
 		<!-- Devise actions -->
 		<ul class="nav navbar-nav navbar-right">
 			<% if user_signed_in? %>
 			  <li>
-			  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+			  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 			  </li>
 			<% else %>
 			  <li>
-			  <%= link_to('Login', new_user_session_path)  %>  
+			  <%= link_to('Login', new_user_session_path)  %>
 			  </li>
-			<% end %>			
+			<% end %>
 		</ul>
 
     </div><!-- /.navbar-collapse -->

@@ -1,6 +1,10 @@
 var app = angular.module('shop', ['ngResource']);
 // we need to include ngResource because angular doesn't include it from the beginning
 
+$(document).on('ready page:load', function() {
+  angular.bootstrap(document.body, ['shop'])
+});
+
 // service - factory
 app.factory('models', ['$resource', function($resource){
   var orders_model = $resource("/orders/:id.json", {id: "@id"});
