@@ -34,6 +34,10 @@ group :development, :test do
 	gem 'spring'
 	gem 'rspec-rails', '~> 3.0'
 	gem 'factory_girl_rails'
+	gem 'guard'
+	gem 'guard-rspec', require: false
+	gem 'spork-rails'
+	gem 'guard-spork'
 end
 
 group :production do

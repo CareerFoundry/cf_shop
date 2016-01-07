@@ -9,7 +9,7 @@ describe UsersController, :type => :controller do
   end
 
   describe "GET #show" do
-     context "User is logged in" do
+     context "User is logged in" do 
        before do
          sign_in @user
        end
