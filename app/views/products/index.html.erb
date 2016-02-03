@@ -1,22 +1,6 @@
-<h1>Listing products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th>Color</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% cache(cache_key_for_products) do %>
-      <%= render @products %>
-    <% end %>
-  </tbody>
-</table>
+<% cache(cache_key_for_products) do %>
+  <%= render @products %>
+<% end %>
 
 <br>
 
