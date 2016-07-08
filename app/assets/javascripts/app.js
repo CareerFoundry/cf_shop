@@ -1,7 +1,7 @@
 var app = angular.module('shop', ['ngResource']);
 // we need to include ngResource because angular doesn't include it from the beginning
 
-$(document).on('ready page:load', function() {
+$(document).on('turbolinks:load', function() {
   angular.bootstrap(document.body, ['shop'])
 });
 
