@@ -13,3 +13,5 @@ module CfShop
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+ActiveSupport.halt_callback_chains_on_return_false = false
