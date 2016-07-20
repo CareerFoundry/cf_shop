@@ -1,4 +1,4 @@
-App.product = App.cable.subscriptions.create("ProductChannel", {
+App.product = App.cable.subscriptions.create({channel: "ProductChannel"}, {
   connected: function() {
     // Called when the subscription is ready for use on the server
   },
@@ -9,10 +9,18 @@ App.product = App.cable.subscriptions.create("ProductChannel", {
 
   received: function(data) {
     // Called when there's incoming data on the websocket for this channel
-    
+    $(".alert.alert-info").show();
+    $('.product-reviews').prepend(data.comment);
+    refreshRating();
   },
 
-  comment_update: function() {
-    return this.perform('comment_update');
+  listen_to_comments: function() {
+    return this.perform('listen', {
+      product_id: $("[data-product-id]").data("product-id")
+    });
   }
+});
+
+$(document).on('turbolinks:load', function() {
+	App.product.listen_to_comments();
 });
