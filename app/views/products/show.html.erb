@@ -2,8 +2,8 @@
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
 
-<div class="row">
-	<div class="col-md-4"><%= image_tag(@product.image_url, width: "350", class: "img-zoom", data_zoom_image: @product.image_url) %></div>
+<div class="row" data-product-id="<%= @product.id %>">
+	<div class="col-md-4"><%= image_tag(@product.image_url, width: "350", class: "img-zoom img-responsive", data_zoom_image: @product.image_url) %></div>
 
 	<div class="col-md-4">
 		<p>
@@ -34,5 +34,7 @@
 </div>
 <% end %>
 <%= render 'new_comment' %>
+
+<div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
 
 <%= render 'comments' %>
